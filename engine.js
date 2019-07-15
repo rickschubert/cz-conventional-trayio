@@ -97,8 +97,12 @@ module.exports = function(options) {
           },
           validate: function(subject, answers) {
             var filteredSubject = filterSubject(subject);
+            var jiraIssueRegEx = /((?!([A-Z0-9a-z]{1,10})-?$)[A-Z]{1}[A-Z0-9]+-\d+)/g;
             return filteredSubject.length == 0
-              ? 'subject is required' : true;
+              ? 'subject is required'
+              : !jiraIssueRegEx.test(filteredSubject)
+              ? 'the jira issue doesn\'t match the correct format'
+              : true 
           }
         },
         {
