@@ -110,7 +110,7 @@ module.exports = function(options) {
               : !jiraIssueRegEx.test(filteredSubject)
               ? 'Jira issue doesn\'t match the correct format'
               : !jiraIssuePrefixes.includes(filteredSubject.split('-')[0].toUpperCase())
-              ? 'Jira issue doesn\'t match the approved list of prefixes ([' + jiraIssuePrefixes.join()
+              ? 'Jira issue doesn\'t match the approved list of prefixes ([' + jiraIssuePrefixes.join() + '])'
               : true;
           }
         },
@@ -161,22 +161,6 @@ module.exports = function(options) {
           name: 'isBreaking',
           message: 'Are there any breaking changes?',
           default: false
-        },
-        {
-          type: 'input',
-          name: 'breakingBody',
-          default: '-',
-          message:
-            'A BREAKING CHANGE commit requires a body. Please enter a longer description of the commit itself:\n',
-          when: function(answers) {
-            return answers.isBreaking && !answers.body;
-          },
-          validate: function(breakingBody, answers) {
-            return (
-              breakingBody.trim().length > 0 ||
-              'Body is required for BREAKING CHANGE'
-            );
-          }
         },
         {
           type: 'input',
