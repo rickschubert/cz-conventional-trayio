@@ -12,6 +12,13 @@ var filter = function(array) {
   });
 };
 
+var jiraIssuePrefixes = [
+  'USP',
+  'ESP',
+  'PSD',
+  'QA',
+]
+
 var headerLength = function(answers) {
   return (
     answers.type.length + 2 + (answers.scope ? answers.scope.length + 2 : 0)
@@ -101,8 +108,10 @@ module.exports = function(options) {
             return filteredSubject.length == 0
               ? 'subject is required'
               : !jiraIssueRegEx.test(filteredSubject)
-              ? 'the jira issue doesn\'t match the correct format'
-              : true 
+              ? 'The JIRA issue doesn\'t match the correct format'
+              : !jiraIssuePrefixes.includes(filteredSubject.split('-')[0])
+              ? 'The JIRA issue doesn\t match the approved list of prefixes'
+              : true;
           }
         },
         {
