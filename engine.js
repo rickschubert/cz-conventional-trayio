@@ -110,7 +110,7 @@ module.exports = function(options) {
               : !jiraIssueRegEx.test(filteredSubject)
               ? 'Jira issue doesn\'t match the correct format'
               : !jiraIssuePrefixes.includes(filteredSubject.split('-')[0])
-              ? 'Jira issue doesn\'t match the approved list of prefixes' + filteredSubject.split('-')[0] + ' --'
+              ? 'Jira issue doesn\'t match the approved list of prefixes ' + filteredSubject.split('-')[0] + ' -- ' + filteredSubject
               : true;
           }
         },
