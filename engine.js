@@ -109,8 +109,8 @@ module.exports = function(options) {
               ? 'Jira issue ID is required'
               : !jiraIssueRegEx.test(filteredSubject)
               ? 'Jira issue doesn\'t match the correct format'
-              : !jiraIssuePrefixes.includes(filteredSubject.split('-')[0])
-              ? 'Jira issue doesn\'t match the approved list of prefixes ' + filteredSubject.split('-')[0] + ' -- ' + filteredSubject
+              : !jiraIssuePrefixes.includes(filteredSubject.split('-')[0].toUpperCase())
+              ? 'Jira issue doesn\'t match the approved list of prefixes ([' + jiraIssuePrefixes.join(', ') + '])
               : true;
           }
         },
