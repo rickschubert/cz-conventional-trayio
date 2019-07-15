@@ -5,7 +5,6 @@ var conventionalCommitTypes = require('conventional-commit-types');
 var configLoader = require('commitizen').configLoader;
 
 var config = configLoader.load();
-console.log('Here', process.env)
 var options = {
   types: conventionalCommitTypes.types,
   defaultType: process.env.CZ_TYPE || config.defaultType,
@@ -29,7 +28,6 @@ var options = {
   try {
     var commitlintLoad = require('@commitlint/load');
     commitlintLoad().then(function(clConfig) {
-      console.log('Here2', clConfig)
       if (clConfig.rules) {
         var maxHeaderLengthRule = clConfig.rules['header-max-length'];
         if (
