@@ -97,7 +97,7 @@ module.exports = function(options) {
           type: 'input',
           name: 'jira',
           message:
-            'What is the Jira ticket ID for this commit (e.g. USP-123)',
+            'What is the Jira issue ID for this commit (e.g. USP-123)',
           default: options.defaultScope,
           filter: function(value) {
             return value.trim().toUpperCase();
@@ -106,11 +106,11 @@ module.exports = function(options) {
             var filteredSubject = filterSubject(subject);
             var jiraIssueRegEx = /((?!([A-Z0-9a-z]{1,10})-?$)[A-Z]{1}[A-Z0-9]+-\d+)/g;
             return filteredSubject.length == 0
-              ? 'subject is required'
+              ? 'Jira issue ID is required'
               : !jiraIssueRegEx.test(filteredSubject)
-              ? 'The JIRA issue doesn\'t match the correct format'
+              ? 'Jira issue doesn\'t match the correct format'
               : !jiraIssuePrefixes.includes(filteredSubject.split('-')[0])
-              ? 'The JIRA issue doesn\t match the approved list of prefixes'
+              ? 'Jira issue doesn\t match the approved list of prefixes'
               : true;
           }
         },
