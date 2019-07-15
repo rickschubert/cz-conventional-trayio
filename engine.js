@@ -98,7 +98,7 @@ module.exports = function(options) {
           name: 'jira',
           message:
             'What is the Jira issue ID for this commit (e.g. USP-123)',
-          default: options.defaultScope,
+          default: options.defaultJira,
           filter: function(value) {
             return value.trim().toUpperCase();
           },
