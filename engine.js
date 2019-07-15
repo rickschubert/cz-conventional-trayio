@@ -156,7 +156,6 @@ module.exports = function(options) {
             'Provide a longer description of the change: (press enter to skip)\n',
           default: options.defaultBody
         },
-        }
       ]).then(function(answers) {
         var wrapOptions = {
           trim: true,
