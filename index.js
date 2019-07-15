@@ -3,6 +3,9 @@
 var engine = require('./engine');
 var conventionalCommitTypes = require('conventional-commit-types');
 var configLoader = require('commitizen').configLoader;
+var simpleGit = require('simple-git')('./');
+
+console.log('A', simpleGit);
 
 var config = configLoader.load();
 var options = {

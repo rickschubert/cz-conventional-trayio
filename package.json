@@ -22,6 +22,7 @@
     "lodash.map": "^4.5.1",
     "longest": "^1.0.1",
     "right-pad": "^1.0.1",
+    "simple-git": "^1.121.0",
     "word-wrap": "^1.0.3"
   },
   "devDependencies": {
