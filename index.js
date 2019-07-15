@@ -29,6 +29,7 @@ var options = {
   try {
     var commitlintLoad = require('@commitlint/load');
     commitlintLoad().then(function(clConfig) {
+      console.log('Here2', clConfig)
       if (clConfig.rules) {
         var maxHeaderLengthRule = clConfig.rules['header-max-length'];
         if (
