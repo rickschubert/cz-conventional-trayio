@@ -17,6 +17,8 @@ var jiraIssuePrefixes = [
   'ESP',
   'PSD',
   'QA',
+  'SYS',
+  'PSP',
 ]
 
 var headerLength = function(answers) {
