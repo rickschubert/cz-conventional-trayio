@@ -33,10 +33,6 @@ var maxSummaryLength = function(options, answers) {
 
 var filterSubject = function(subject) {
   subject = subject.trim();
-  if (subject.charAt(0).toLowerCase() !== subject.charAt(0)) {
-    subject =
-      subject.charAt(0).toLowerCase() + subject.slice(1, subject.length);
-  }
   while (subject.endsWith('.')) {
     subject = subject.slice(0, subject.length - 1);
   }
