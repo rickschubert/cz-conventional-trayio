@@ -101,13 +101,12 @@ module.exports = function(options) {
             return value.trim().toUpperCase();
           },
           validate: function(subject, answers) {
-            var filteredSubject = filterSubject(subject);
             var jiraIssueRegEx = /(?:(?!([A-Z0-9a-z]{1,10})-?$)[A-Z]{1}[A-Z0-9]+-\d+)/g;
-            return filteredSubject.length == 0
+            return subject.length == 0
               ? 'Jira issue ID is required'
-              : !jiraIssueRegEx.test(filteredSubject)
+              : !jiraIssueRegEx.test(subject)
               ? 'Jira issue doesn\'t match the correct format'
-              : !jiraIssuePrefixes.includes(filteredSubject.split('-')[0].toUpperCase())
+              : !jiraIssuePrefixes.includes(subject.split('-')[0].toUpperCase())
               ? 'Jira issue doesn\'t match the approved list of prefixes ([' + jiraIssuePrefixes.join() + '])'
               : true;
           }
