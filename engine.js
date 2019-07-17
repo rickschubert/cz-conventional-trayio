@@ -106,7 +106,7 @@ module.exports = function(options) {
           },
           validate: function(subject, answers) {
             var filteredSubject = filterSubject(subject);
-            var jiraIssueRegEx = /((?!([A-Z0-9a-z]{1,10})-?$)[A-Z]{1}[A-Z0-9]+-\d+)/g;
+            var jiraIssueRegEx = /(?:(?!([A-Z0-9a-z]{1,10})-?$)[A-Z]{1}[A-Z0-9]+-\d+)/g;
             return filteredSubject.length == 0
               ? 'Jira issue ID is required'
               : !jiraIssueRegEx.test(filteredSubject)
